@@ -1,16 +1,20 @@
+"use client"
 import Hero from '@/app/compoments/Hero/Hero'
-import React from 'react'
+import { Carcontext } from '@/app/Providers/CarProviders';
+import React, { useContext } from 'react'
 
 
 
-const fetchuser =async()=>{
-    const users = await fetch("http://localhost:3000/api/User");
-    const data = await users.json();
-    return data;
-}
-const User = async() => {
+// const fetchuser =async()=>{
+//     const users = await fetch("http://localhost:3000/api/User");
+//     const data = await users.json();
+//     return data;
+// }
+const User = () => {
+  const {Userdata} = useContext(Carcontext);
+  const data = Userdata;
 
-    const data =await fetchuser();
+    // const data = fetchuser();
   return (
    <div className=''>
    

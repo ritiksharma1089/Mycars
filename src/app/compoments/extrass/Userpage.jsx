@@ -1,22 +1,9 @@
-"use client"
-import { Carcontext } from '@/app/Providers/CarProviders'
-import React, { useContext } from 'react'
-
-// const fetchdata =async()=>{
-//   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
-//    const res = await fetch(`${baseUrl}/api/order`);
-//     const data = await res.json();
-//     return data;
-// }
-const page = () => {
+import React from 'react'
 
 
-  // const data = await fetchdata();
-  const {Orderdata} = useContext(Carcontext);
-  console.log("order data " , Orderdata);
-  const data = Orderdata;
+const Userpage = async({data}) => {
 
- return (
+  return (
    <div className=''>
    
             <div
@@ -25,7 +12,7 @@ const page = () => {
                     >
                     <div className="card shadow-lg w-100 h-100 border-0">
                         <div className="card-body d-flex flex-column text-center">
-                                <h1> Total Order</h1>
+                                <h1> Total users</h1>
                                 <h1>  {data.length}  </h1>
                         </div>
                     </div>
@@ -39,7 +26,6 @@ const page = () => {
       <th scope="col">Name</th>
       <th scope="col">Mobile</th>
       <th scope="col">Handle</th>
-      <th scope="col">Car</th>
     </tr>
   </thead>
   <tbody>
@@ -50,9 +36,8 @@ const page = () => {
     <tr key={item.id}>
       <th scope="row">*</th>
       <td>{item.name}</td>
-      <td>{item.contact || "No Mobile "}</td>
+      <td>{item.mobile || "No Mobile "}</td>
       <td>{item.email}</td>
-      <td>{item.car}</td>
     </tr>
         ))
     }
@@ -61,8 +46,10 @@ const page = () => {
 </table>
                    </div>
 
+                    <Hero/>
    </div>
   )
 }
 
-export default page
+
+export default Userpage;
