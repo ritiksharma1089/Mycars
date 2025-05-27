@@ -1,0 +1,115 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../src/generated/prisma"
+  output   = "./prisma/generated/client"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String  @id @default(cuid()) @map("_id")
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid()) @map("_id")
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id")
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model User {
+  id   String  @id @default(cuid()) @map("_id")
+  name String?
+
+  email         String    @unique
+  emailVerified DateTime? @map("email_verified")
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  mobile        Int?
+  isAdmin       Boolean   @default(false)
+  Post          Post[]
+  // Comment Comment[]
+
+  @@map("users")
+}
+
+model VerificationToken {
+  identifier String   @id @map("_id")
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Post {
+  id String @id @default(cuid()) @map("_id")
+
+  titile String
+  desc   String
+  img    String?
+  model  Int
+
+  type      String
+  othertype String?
+  price     Int
+
+  company   String
+  Reg_year  Int
+  driven    Int
+  ownership Int
+  spare_key Boolean
+  Insurance String
+
+  Reg_num       String
+  Dealer_choice Int    @default(0)
+
+  public Boolean @default(false)
+
+  contact      Int?
+  Emi          Int?
+  othercharges Int?
+
+  userEmail String
+  user      User   @relation(fields: [userEmail], references: [email])
+}
+
+model Order {
+  id   String  @id @default(cuid()) @map("_id")
+  name String?
+
+  email   String
+  contact Int
+
+  car       String
+  Budget    Int?     @default(300000)
+  createdAt DateTime @default(now())
+}

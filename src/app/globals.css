@@ -1,0 +1,13 @@
+.scrolling-bg {
+  height: 500px;
+  background-image: url('/fortuner.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+    /* transform: scaleX(-1); Flips horizontally/ */
+    position: relative;
+  }
+  
+  
+  
