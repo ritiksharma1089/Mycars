@@ -1,5 +1,5 @@
 "use client"
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Card from "../compoments/Card/Card";
 import Filter from "../compoments/extrass/filter";
 import { Carcontext } from '@/app/Providers/CarProviders'
@@ -13,7 +13,8 @@ const page = () => {
 
 
   const { allData } = useContext(Carcontext);
-  
+   const [searchTerm, setSearchTerm] = useState("");
+   
 
 useEffect(() => {
     console.log("this is all data#####################################", allData);
@@ -24,20 +25,38 @@ useEffect(() => {
     if(!allData || allData.length ==0){
       return <div>loading</div>
     }
+
+
+
+
+     const filteredCars = allData.filter((item) =>
+    item.titile.toLowerCase().includes(searchTerm.toLowerCase())
+  );
     return (
       <div className="container">
-      <Filter/>
 
       {/* <Navbar/> */}
 
-          <div className="text-center h2"> All Cars we have</div>
-     
+          <div className="text-center h2 mb-4">All Cars We Have</div>
+
+      {/* 🔍 Search Bar */}
+      <div className="row mb-4">
+        <div className="col-12 col-md-6 mx-auto">
+          <input
+            type="text"
+            className="form-control shadow-sm"
+            placeholder="Search for a car (e.g., Swift, Honda City)"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+      </div>
 
 
 <div className="row">
 
 
-      {allData.map((item)=>(
+      {filteredCars.map((item)=>(
         <div className="col-12 col-md-6 col-lg-4 my-3" key={item.id}> 
         <Card item={item}/>
           
@@ -45,13 +64,14 @@ useEffect(() => {
       ))}
       </div>
       
-      {allData[0].titile} this is title
+      {/* {allData[0].titile} this is title */}
 
       {/* <Footer/> */}
+      <Filter/>
 
     
     </div>
   )
-}
+} 
 
 export default page

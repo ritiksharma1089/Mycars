@@ -11,7 +11,7 @@ const CrouselCard = ({item}) => {
 
                 <img src={item?.img || "/fortuner.png"} className="card-img-top " alt="..." style={{ maxHeight: "330px" }} />
             </div>
-                <div className="card-body bg-secondary  bg-opacity-25 mx-auto text-center rounded"  style={{ maxWidth: "800px" }}>
+                <div className="card-body   bg-opacity-25 mx-auto text-center rounded"  style={{ maxWidth: "800px" }}>
 
                     <div className='row mx-auto text-center'>
 

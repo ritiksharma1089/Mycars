@@ -55,6 +55,10 @@ const [carid, setcarid]= useState(item.id);
     setCardata(prev => ({ ...prev, [id]: value }));
   };
 
+    const handleEditClick1 = () => {
+    setShowForm(true);
+    window.scrollTo({ top: 0, behavior: "smooth" }); // smooth scroll to top
+  };
 
   const handleSubmit = async () => {
     
@@ -142,7 +146,7 @@ return (
                 </li>
             </ul>
             <div className="card-body d-flex justify-content-between">
-                <button  className="btn btn-primary btn-sm w-100 me-2"  onClick={handleEditClick}
+                <button  className="btn btn-primary btn-sm w-100 me-2"  onClick={handleEditClick1}
                 >
                         Edit
                 </button>

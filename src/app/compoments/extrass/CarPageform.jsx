@@ -61,7 +61,7 @@ const CarPageform = ({item}) => {
 
     
     if(!data){
-        return <div>loading</div>
+        return <div>loading....</div>
     }
 
      const handleChange = (e) => {

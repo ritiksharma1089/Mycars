@@ -25,7 +25,7 @@ const page = async({params}) => {
 const data = await fetchslug(slug)
 console.log(data);
 if(!data || data.length ==0){
-  return <div> laoding</div>
+  return <div> laoding..........</div>
 }
 
 const car = data[0];
@@ -64,9 +64,9 @@ const car = data[0];
 
 
          <div className="container my-4 h-75">
-        <div className="card shadow">
-            <div className="card-body mx-auto">
-                <h1>{car.titile}</h1>
+        <div className=" shadow">
+            <div className=" mx-auto">
+                <p>{car.titile}</p>
 
                 <h3> {car.desc}...</h3>
                 
@@ -75,7 +75,7 @@ const car = data[0];
     </div>
 
 
-       <Whyus/>
+       {/* <Whyus/> */}
        <Chooseus/>
 
          

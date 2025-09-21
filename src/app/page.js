@@ -7,6 +7,7 @@ import Scrolldiv from './compoments/scrollpicdiv/Scrolldiv';
 import CardList from './compoments/CardList/CardList';
 import Commentcard from './compoments/extrass/Commentcard';
 import Comment from './compoments/extrass/Comment';
+import CarPricePredictor from './compoments/predict/Predict';
 
 export default function Home() {
   return (
@@ -14,8 +15,9 @@ export default function Home() {
     <div>
      
       <Scrolldiv/>
+      {/* <Hero/> */}
+      <CarPricePredictor/>
       <CardList/>
-      <Hero/>
       <Chooseus/>
       <Crousel/>
       <Comment/>
