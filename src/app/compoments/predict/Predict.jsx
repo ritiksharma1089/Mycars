@@ -98,7 +98,7 @@ export default function CarPricePredictor() {
     "Skoda", "Tata", "Toyota", "Volkswagen", "Volvo",
   ];
 
-  const fuelTypes = ["Diesel", "LPG", "Petrol"];
+  const fuelTypes = ["Diesel", "CNG", "Petrol"];
 
   const [formData, setFormData] = useState({
     name: "",

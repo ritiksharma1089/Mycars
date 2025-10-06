@@ -22,7 +22,7 @@ const Aboutuss = () => {
                 </div>
                 <div className="col-md-5 text-center">
                     <img
-                        src="/myimg.jpg"
+                        src="/profilepic.png"
                         alt="Owner Mukesh"
                         className="img-fluid rounded-circle shadow"
                         style={{ maxWidth: '250px', border: '6px solidrgb(75, 82, 87)', background: '#e6f7ff' }}

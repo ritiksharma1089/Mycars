@@ -95,20 +95,7 @@ const Navbar = () => {
                             <button className="btn btn-success" type="button" onClick={() => signOut()}>
                                 Logout
                             </button>
-                            <Link href={"/profile"} className="btn btn-success mx-3 opacity-50 " type="button" style={{ borderRadius: "70%" }}>
-                                {/* Use <img> instead of <Image> for external URLs or configure next.config.js */}
-                                {data.user?.image ? (
-                                    <img
-                                        src={data.user.image || "/profile.jpg"}
-                                        alt="profile"
-                                        width={30}
-                                        height={30}
-                                        style={{ borderRadius: "50%" }}
-                                    />
-                                ) : (
-                                    <span>No Image</span>
-                                )}
-                            </Link>
+                          
                         </div>
                     
                     ) : (

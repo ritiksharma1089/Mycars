@@ -68,7 +68,7 @@ const car = data[0];
             <div className=" mx-auto">
                 <p>{car.titile}</p>
 
-                <h3> {car.desc}...</h3>
+                <p> {car.desc}...</p>
                 
             </div>
         </div>
