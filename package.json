@@ -14,7 +14,7 @@
     "bootstrap": "^5.3.6",
     "cloudinary": "^2.6.1",
     "formidable": "^3.5.4",
-    "next": "15.3.2",
+    "next": "15.3.8",
     "next-auth": "^4.24.11",
     "nodemailer": "^6.10.1",
     "react": "^19.0.0",
