@@ -8,7 +8,7 @@ import React from 'react'
 
 
 const fetchslug = async(slug)=>{
- const res = await fetch(`http://localhost:3000/api/Cars/${slug}`);
+ const res = await fetch(`https://mycars-chi.vercel.app/api/Cars/${slug}`);
  const data = await res.json();
  return data;
 }
