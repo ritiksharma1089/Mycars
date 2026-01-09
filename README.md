@@ -28,10 +28,13 @@ Styling: Tailwind css
 Auth: Google OAuth2
 
 ▶️ Run Locally
-git clone [https://github.com/your-username/mycar.git](https://github.com/ritiksharma1089/Mycars.git)
+git clone https://github.com/ritiksharma1089/Mycars.git
+
 cd mycar
+
 npm install
-npm start
+
+npm run dev
 
 🎯 Future Enhancements
 
